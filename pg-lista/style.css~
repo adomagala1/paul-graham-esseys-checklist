@@ -1,0 +1,100 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --item-bg: #1a1a1a;
+    --border-color: #282828;
+    --dot-gray: #444;
+    --dot-green: #00ff6a;
+    --hover-color: #2f2f2f;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.essay-item {
+    background-color: var(--item-bg);
+    border: 1px solid var(--border-color);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.essay-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none; /* Żeby tekst się nie zaznaczał przy klikaniu */
+}
+
+.essay-header:hover {
+    background-color: var(--hover-color);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--dot-gray);
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+}
+
+.status-dot.read {
+    background-color: var(--dot-green);
+    box-shadow: 0 0 8px var(--dot-green);
+}
+
+.essay-title {
+    font-size: 1.1rem;
+}
+
+.notes-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 20px;
+}
+
+.essay-item.open .notes-section {
+    max-height: 500px; /* Wystarczająco dużo miejsca */
+    padding: 0px 20px 20px 52px; /* Wcięcie jak tytuł */
+    transition: max-height 0.4s ease-in, padding 0.4s ease-in;
+}
+
+.notes-section textarea {
+    width: 100%;
+    min-height: 120px;
+    background-color: #000;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    padding: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.notes-section textarea:focus {
+    outline: none;
+    border-color: var(--dot-green);
+}
